@@ -1,0 +1,1 @@
+# Bolu_Land_Valuation
