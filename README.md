@@ -4,9 +4,9 @@
 **Supervisor:** Dr. Öğr. Üyesi Sohaib K. M. Abujayyab
 
 ## Group Members
-*   [Your Name] - [Your Student Number]
-*   [Friend Name 1] - [Friend Student Number]
-*   [Friend Name 2] - [Friend Student Number]
+*   Yusuf Abdinasir Warfa - 2210213622
+*   Abdirizak Hashim Ali - 2210213569
+*   Muruts Tsegu Gebretsadik - [Friend Student Number]
 
 ## Hosted Web GIS Application
 [Link will be added here after Streamlit deployment]
