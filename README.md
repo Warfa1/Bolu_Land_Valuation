@@ -6,7 +6,7 @@
 ## Group Members
 *   Yusuf Abdinasir Warfa - 2210213622
 *   Abdirizak Hashim Ali - 2210213569
-*   Muruts Tsegu Gebretsadik - [Friend Student Number]
+*   Muruts Tsegu Gebretsadik - 2210205569
 
 ## Hosted Web GIS Application
 [Link will be added here after Streamlit deployment]
