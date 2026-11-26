@@ -12,7 +12,7 @@ from sklearn.metrics import r2_score
 st.set_page_config(page_title="Bolu Land Valuation DSS", layout="wide")
 st.title("Bolu Land Parcel Valuation System")
 st.markdown("**Course:** CME434 Geographic Information Systems | **University:** Karabük University")
-st.markdown("**Group Members:** [Yusuf Abdinasir Warfa], [Murut Tsegu Gebretsadik], [Abdirizak Hashim Ali]")
+st.markdown("**Group Members:** Yusuf Abdinasir Warfa, Murut Tsegu Gebretsadik, Abdirizak Hashim Ali")
 st.markdown("**Supervisor:** Dr. Öğr. Üyesi Sohaib K. M. Abujayyab")
 st.markdown("---")
 
