@@ -9,7 +9,7 @@
 *   Muruts Tsegu Gebretsadik - 2210205569
 
 ## Hosted Web GIS Application
-[Link will be added here after Streamlit deployment]
+https://bolulandvaluation-eaz7abcuet8dxvyxd5du2i.streamlit.app
 
 ## Project Overview
 This project estimates land value (TL/m²) in Bolu, Türkiye, using a spatial regression dataset with 33 features (Ad details, Remote Sensing from GEE, and OSM accessibility). We compared Random Forest, XGBoost, and LightGBM using Spatial Block Cross-Validation, tuned the models, and explained the best model (XGBoost) with SHAP. The results are published as this open-source repository and a hosted Streamlit web app.
