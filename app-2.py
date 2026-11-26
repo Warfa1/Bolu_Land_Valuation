@@ -34,6 +34,7 @@ model = load_model()
 tab1, tab2, tab3, tab4 = st.tabs(["🗺️ Map & Search", "💰 Fair Price Check", "📊 Price Index", "⚙️ Model Retrain"])
 
 # --- TAB 1: MAP & SEARCH ---
+# --- TAB 1: MAP & SEARCH ---
 with tab1:
     st.header("Search & Visualize Listings")
     
@@ -43,12 +44,16 @@ with tab1:
     with col2:
         min_area = st.slider("Min Area (m²)", int(df['m2'].min()), int(df['m2'].max()), 500)
     with col3:
-        imar_filter = st.selectbox("İmar Durumu", ["All"] + list(df['imar_durumu'].unique()))
+        # Since we dropped the text column, we check if any encoded imar column is 1
+        imar_filter = st.selectbox("Filter by Zoning (Any Encoded)", ["All", "Konut", "Tarla", "Villa", "Ticari"])
     
     # Filter data
     filtered_df = df[(df['fiyat_tl'] <= max_price) & (df['m2'] >= min_area)]
+    
     if imar_filter != "All":
-        filtered_df = filtered_df[filtered_df['imar_durumu'] == imar_filter]
+        col_name = f"imar_durumu_{imar_filter}"
+        if col_name in filtered_df.columns:
+            filtered_df = filtered_df[filtered_df[col_name] == 1]
         
     # Create Map
     m = folium.Map(location=[40.73, 31.60], zoom_start=9)
@@ -56,7 +61,7 @@ with tab1:
         folium.CircleMarker(
             location=[row['lat'], row['lon']],
             radius=5,
-            popup=f"Price: {row['fiyat_tl']:,.0f} TL<br>Area: {row['m2']} m²<br>İmar: {row['imar_durumu']}",
+            popup=f"Price: {row['fiyat_tl']:,.0f} TL<br>Area: {row['m2']} m²",
             color="blue", fill=True
         ).add_to(m)
     folium_static(m)
