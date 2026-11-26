@@ -91,6 +91,7 @@ with tab2:
         if chosen_col in features.index:
             features[chosen_col] = 1
             
+        # Drop target and leakage columns
         X_input = features.drop(['unit_tl_m2', 'fiyat_tl', 'ilan_no', 'ilan_tarihi', 'url', 'collected_on', 'maps_link', 'gabari', 'geometry'], errors='ignore')
         
         pred_log = model.predict(pd.DataFrame([X_input]))[0]
@@ -109,15 +110,14 @@ with tab2:
 # --- TAB 3: PRICE INDEX ---
 with tab3:
     st.header("Land Price Index Map (Median = 100)")
-    # Calculate index per district
-    district_medians = df.groupby('ilce_merkez')['unit_tl_m2'].median() if 'ilce_merkez' in df.columns else df.groupby('ilce_mudurnu')['unit_tl_m2'].median()
     
-    # Because ilce is one-hot encoded, we use a simplified proxy for the price index
     overall_median = df['unit_tl_m2'].median()
     
-    # Create a dummy index based on the latitude (as a proxy)
     df['lat_bin'] = pd.cut(df['lat'], bins=10)
     index_df = df.groupby('lat_bin', observed=False)['unit_tl_m2'].median() / overall_median * 100
+    
+    # Convert index to string so Altair doesn't crash
+    index_df.index = index_df.index.astype(str)
     
     st.bar_chart(index_df)
     st.write("Index > 100 means more expensive than the study area median.")
